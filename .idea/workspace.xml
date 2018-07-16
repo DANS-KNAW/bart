@@ -3,22 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="136a26e0-e5fa-46bf-96b2-31369b3d607e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/BartContextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/BartContextListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/BartServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/BartServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/BartProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/BartProperties.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyHomer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyHomer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyHomer$DiscoveryThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyHomer$DiscoveryThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyHomer$loglevels.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyHomer$loglevels.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyHomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyHomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyMarge$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyMarge$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyMarge$methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyMarge$methods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyMarge.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/LazyMarge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/MargeObserver.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/MargeObserver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/MargeTimerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/MargeTimerThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/springfield/bart/homer/SmithersProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/springfield/bart/homer/SmithersProperties.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bart.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/bart.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bart.war" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bart.war" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +16,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+            <state relative-caret-position="15">
+              <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -158,8 +142,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        <state>
+          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
         </state>
       </provider>
     </entry>
