@@ -11,3 +11,5 @@
 *.jar
 
 WebContent/build.txt
+/.idea/workspace.xml
+
