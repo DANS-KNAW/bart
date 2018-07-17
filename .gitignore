@@ -1,6 +1,9 @@
 /bin
 /build/
 /dist/
+/.idea
+/*.iml
+/WebContent/build.txt
 
 *.class
 
@@ -10,6 +13,4 @@
 
 *.jar
 
-WebContent/build.txt
-/.idea/workspace.xml
 
