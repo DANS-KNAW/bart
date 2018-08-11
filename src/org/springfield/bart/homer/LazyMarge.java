@@ -42,7 +42,7 @@ public class LazyMarge extends Thread {
 	MulticastSocket s = null;
 	
 	public LazyMarge() {
-		System.out.println("Bart: starting LazyMarge");
+		System.out.println("BART: starting LazyMarge");
 		if (!running) {
 			running = true;
 			start();

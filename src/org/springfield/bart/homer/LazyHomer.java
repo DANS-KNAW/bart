@@ -36,6 +36,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.apache.log4j.*;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.dom4j.*;
 import org.springfield.mojo.http.*;
 import org.springfield.mojo.interfaces.ServiceInterface;
@@ -96,12 +97,12 @@ public class LazyHomer implements MargeObserver {
 	public static void addSmithers(String ipnumber,String port,String mport,String role) {
 			int oldsize = smithers.size();
 			if (!(""+LazyHomer.getPort()).equals(mport)) {
-				System.out.println("BART EXTREEM WARNING CLUSTER COLLISION ("+LazyHomer.getPort()+") "+ipnumber+":"+port+":"+mport);
+				System.out.println("BART: EXTREEM WARNING CLUSTER COLLISION ("+LazyHomer.getPort()+") "+ipnumber+":"+port+":"+mport);
 				return;
 			}
 			
 			if (!role.equals(getRole())) {
-				System.out.println("Ignored this smithers ("+ipnumber+") its "+role+" and not "+getRole()+" like us");
+				System.out.println("BART: Ignored this smithers ("+ipnumber+") its "+role+" and not "+getRole()+" like us");
 				return;
 			}
 			
@@ -113,8 +114,8 @@ public class LazyHomer implements MargeObserver {
 				sp.setPort(port);
 				sp.setAlive(true); // since talking its alive 
 				noreply = false; // stop asking (minimum of 60 sec, delayed)
-				LOG.info("lou found smithers at = "+ipnumber+" port="+port+" multicast="+mport);
-				System.out.println("bart found smithers at = "+ipnumber+" port="+port+" multicast="+mport);
+				LOG.info("Bart found smithers at = "+ipnumber+" port="+port+" multicast="+mport);
+				System.out.println("BART: found smithers at = "+ipnumber+" port="+port+" multicast="+mport);
 			} else {
 				if (!sp.isAlive()) {
 					sp.setAlive(true); // since talking its alive again !
@@ -262,7 +263,7 @@ public class LazyHomer implements MargeObserver {
 	}
 	
 	private void initConfig() {
-		System.out.println("Bart: initializing configuration.");
+		System.out.println("BART: initializing configuration.");
 		
 		// properties
 		Properties props = new Properties();
@@ -275,13 +276,13 @@ public class LazyHomer implements MargeObserver {
 		
 		// load from file
 		try {
-			System.out.println("INFO: Loading config file from load : "+configfilename);
+			System.out.println("BART: INFO: Loading config file from load : "+configfilename);
 			File file = new File(configfilename);
 
 			if (file.exists()) {
 				props.loadFromXML(new BufferedInputStream(new FileInputStream(file)));
 			} else { 
-				System.out.println("FATAL: Could not load config "+configfilename);
+				System.out.println("BART: FATAL: Could not load config "+configfilename);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -295,7 +296,7 @@ public class LazyHomer implements MargeObserver {
 		smithers_port = Integer.parseInt(props.getProperty("default-smithers-port"));
 		role = props.getProperty("role");
 		if (role==null) role = "production";
-		System.out.println("SERVER ROLE="+role);
+		System.out.println("BART: SERVER ROLE="+role);
 	}
 	
 	public static String getRole() {
@@ -402,36 +403,19 @@ public class LazyHomer implements MargeObserver {
 	/**
 	 * Initializes logger
 	 */
-    private void initLogger() {    	 
-    	System.out.println("Initializing logging for bart");
-    	
-    	// get logging path
-    	String logPath = LazyHomer.getRootPath().substring(0,LazyHomer.getRootPath().indexOf("webapps"));
-		logPath += "logs/bart/bart.log";	
-		
-		try {
-			// default layout
-			Layout layout = new PatternLayout("%-5p: %d{yyyy-MM-dd HH:mm:ss} %c %x - %m%n");
-			
-			// rolling file appender
-			DailyRollingFileAppender appender1 = new DailyRollingFileAppender(layout,logPath,"'.'yyyy-MM-dd");
-			BasicConfigurator.configure(appender1);
-			
-			// console appender 
-			ConsoleAppender appender2 = new ConsoleAppender(layout);
-			BasicConfigurator.configure(appender2);
-		}
-		catch(IOException e) {
-			System.out.println("BartServer got an exception while initializing the logger.");
-			e.printStackTrace();
-		}
-		
-		Level logLevel = Level.INFO;
-		LOG.getRootLogger().setLevel(Level.OFF);
-		LOG.getLogger(PACKAGE_ROOT).setLevel(logLevel);
-		LOG.info("logging level: " + logLevel);
-		
-		LOG.info("Initializing logging done.");
+    private void initLogger() {
+			System.out.println("BART: Initializing logging....");
+
+			File xmlConfig = new File("/springfield/bart/log4j.xml");
+			if (xmlConfig.exists()) {
+				System.out.println("BART: Reading logging config from XML file at " + xmlConfig);
+				DOMConfigurator.configure(xmlConfig.getAbsolutePath());
+				LOG.info("Logging configured from file: " + xmlConfig);
+			}
+			else {
+				System.out.println("BART: Could not find log config at " + xmlConfig);
+			}
+			LOG.info("Initializing logging done.");
     }
 
 	

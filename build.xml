@@ -91,9 +91,9 @@
 				<exclude name="WEB-INF/lib/xalan-2.6.0.jar"/>
 				<exclude name="WEB-INF/lib/springfield-tools.jar"/>
 				<exclude name="WEB-INF/lib/org.osgi.core-4.0.0.jar"/>
-				<exclude name="EB-INF/lib/org.restlet.ext.servlet-2.0.10.jar"/>
-				<exclude name="EB-INF/lib/org.restlet-2.0.10.jar"/>
-				<exclude name="EB-INF/lib/org.restlet.ext.xml-2.0.10.jar"/>
+				<exclude name="WEB-INF/lib/org.restlet.ext.servlet-2.0.10.jar"/>
+				<exclude name="WEB-INF/lib/org.restlet-2.0.10.jar"/>
+				<exclude name="WEB-INF/lib/org.restlet.ext.xml-2.0.10.jar"/>
 			</fileset>
 			<manifest>
 				<attribute name="Built-By" value="Noterik B.V."/>
