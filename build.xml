@@ -67,12 +67,12 @@
 			<lib dir="${build.dir}" />
 			<fileset dir="${web.dir}">
 				<exclude name="WEB-INF/web.xml"/>
-				<exclude name="WEB-INF/lib/servlet.jar"/> 
+				<exclude name="WEB-INF/lib/servlet.jar"/>
 				<exclude name="WEB-INF/lib/servlet-api.jar"/>
 				<exclude name="WEB-INF/lib/jsp-api.jar"/>
 				<exclude name="WEB-INF/lib/mojo.jar"/>
 				<exclude name="WEB-INF/lib/commons-net-2.0.jar"/>
-				<exclude name="WEB-INF/lib/log4j-1.2.16.jar"/>  15 ipv 16
+				<exclude name="WEB-INF/lib/log4j-1.2.16.jar"/>
 				<exclude name="WEB-INF/lib/dom4j-1.6.1.jar"/>
 				<exclude name="WEB-INF/lib/icu4j-2.6.1.jar"/>
 				<exclude name="WEB-INF/lib/jaxen-1.1.1.jar"/>
