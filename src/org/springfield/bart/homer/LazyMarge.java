@@ -132,8 +132,7 @@ public class LazyMarge extends Thread {
 			if (running) {
 				if (errorcounter2<10) {
 					errorcounter2++;
-					LOG.info("ERROR Multicast outerloop");
-					//e.printStackTrace();
+					LOG.warn("ERROR Multicast outerloop", e);
 				}
 			}
 		}
