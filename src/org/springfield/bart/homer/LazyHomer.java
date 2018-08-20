@@ -97,12 +97,12 @@ public class LazyHomer implements MargeObserver {
 	public static void addSmithers(String ipnumber,String port,String mport,String role) {
 			int oldsize = smithers.size();
 			if (!(""+LazyHomer.getPort()).equals(mport)) {
-				LOG.warn("BART: EXTREME WARNING CLUSTER COLLISION ("+LazyHomer.getPort()+") "+ipnumber+":"+port+":"+mport);
+				LOG.warn("EXTREME WARNING CLUSTER COLLISION ("+LazyHomer.getPort()+") "+ipnumber+":"+port+":"+mport);
 				return;
 			}
 			
 			if (!role.equals(getRole())) {
-				LOG.warn("BART: Ignored this smithers ("+ipnumber+") its "+role+" and not "+getRole()+" like us");
+				LOG.warn("Ignored this smithers ("+ipnumber+") its "+role+" and not "+getRole()+" like us");
 				return;
 			}
 			
@@ -259,7 +259,7 @@ public class LazyHomer implements MargeObserver {
 	}
 	
 	private void initConfig() {
-		LOG.info("BART: initializing configuration.");
+		LOG.info("initializing configuration.");
 		
 		// properties
 		Properties props = new Properties();
@@ -292,7 +292,7 @@ public class LazyHomer implements MargeObserver {
 		smithers_port = Integer.parseInt(props.getProperty("default-smithers-port"));
 		role = props.getProperty("role");
 		if (role==null) role = "production";
-		LOG.info("BART: SERVER ROLE="+role);
+		LOG.info("SERVER ROLE="+role);
 	}
 	
 	public static String getRole() {

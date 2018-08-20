@@ -96,13 +96,13 @@ public class LazyMarge extends Thread {
 							String inc = result[0];
 							int pos = inc.indexOf(":");
 							if (pos==-1) {
-								LOG.fatal("BART: FATAL ERROR OLD ADD SMITHERS STYLE (NOT IP:PORT:MPORT) "+inc);
+								LOG.fatal("FATAL ERROR OLD ADD SMITHERS STYLE (NOT IP:PORT:MPORT) "+inc);
 							} else {
 								String ipn = inc.substring(0,pos);
 								String pon = inc.substring(pos+1);
 								pos = pon.indexOf(":");
 								if (pos==-1) {
-									LOG.fatal("BART: FATAL ERROR OLD ADD SMITHERS STYLE (NOT IP:PORT:MPORT) "+inc);
+									LOG.fatal("FATAL ERROR OLD ADD SMITHERS STYLE (NOT IP:PORT:MPORT) "+inc);
 								} else {
 									String mpon = pon.substring(pos+1);
 									pon = pon.substring(0,pos);
