@@ -76,8 +76,8 @@ public class LazyHomer implements MargeObserver {
 		rootPath = r;
 		ins = this;
 		retryCounter = 0;
-		initConfig();
 		initLogger();
+		initConfig();
 		try{
 			InetAddress mip=InetAddress.getLocalHost();
 			myip = ""+mip.getHostAddress();
@@ -97,12 +97,12 @@ public class LazyHomer implements MargeObserver {
 	public static void addSmithers(String ipnumber,String port,String mport,String role) {
 			int oldsize = smithers.size();
 			if (!(""+LazyHomer.getPort()).equals(mport)) {
-				System.out.println("BART: EXTREEM WARNING CLUSTER COLLISION ("+LazyHomer.getPort()+") "+ipnumber+":"+port+":"+mport);
+				LOG.warn("EXTREME WARNING CLUSTER COLLISION ("+LazyHomer.getPort()+") "+ipnumber+":"+port+":"+mport);
 				return;
 			}
 			
 			if (!role.equals(getRole())) {
-				System.out.println("BART: Ignored this smithers ("+ipnumber+") its "+role+" and not "+getRole()+" like us");
+				LOG.warn("Ignored this smithers ("+ipnumber+") its "+role+" and not "+getRole()+" like us");
 				return;
 			}
 			
@@ -115,7 +115,6 @@ public class LazyHomer implements MargeObserver {
 				sp.setAlive(true); // since talking its alive 
 				noreply = false; // stop asking (minimum of 60 sec, delayed)
 				LOG.info("Bart found smithers at = "+ipnumber+" port="+port+" multicast="+mport);
-				System.out.println("BART: found smithers at = "+ipnumber+" port="+port+" multicast="+mport);
 			} else {
 				if (!sp.isAlive()) {
 					sp.setAlive(true); // since talking its alive again !
@@ -197,9 +196,7 @@ public class LazyHomer implements MargeObserver {
 					mp.setDefaultLogLevel(child.selectSingleNode("properties/defaultloglevel").getText());
 					mp.setPreferedSmithers(child.selectSingleNode("properties/preferedsmithers").getText());
 					
-					//System.out.println("comparing ip "+ipnumber+" with "+myip);					
 					if (ipnumber.equals(myip)) {
-						//System.out.println("ip was equal");
 						foundmynode = true;
 						retryCounter = 0;
 						if (name.equals("unknown")) {
@@ -249,8 +246,7 @@ public class LazyHomer implements MargeObserver {
 				}
 			}
 		} catch (Exception e) {
-			LOG.info("LazyHomer exception doc");
-			e.printStackTrace();
+			LOG.warn("Eating exception and continuing", e);
 		}
 		return iamok;
 	}
@@ -263,7 +259,7 @@ public class LazyHomer implements MargeObserver {
 	}
 	
 	private void initConfig() {
-		System.out.println("BART: initializing configuration.");
+		LOG.info("initializing configuration.");
 		
 		// properties
 		Properties props = new Properties();
@@ -285,9 +281,9 @@ public class LazyHomer implements MargeObserver {
 				System.out.println("BART: FATAL: Could not load config "+configfilename);
 			}
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			LOG.warn("Eating exception and continuing", e);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOG.warn("Eating exception and continuing", e);
 		}
 		
 		// only get the marge communication port unless we are a smithers
@@ -296,7 +292,7 @@ public class LazyHomer implements MargeObserver {
 		smithers_port = Integer.parseInt(props.getProperty("default-smithers-port"));
 		role = props.getProperty("role");
 		if (role==null) role = "production";
-		System.out.println("BART: SERVER ROLE="+role);
+		LOG.info("SERVER ROLE="+role);
 	}
 	
 	public static String getRole() {

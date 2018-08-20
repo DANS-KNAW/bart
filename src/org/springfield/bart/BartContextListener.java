@@ -32,11 +32,7 @@ import org.springfield.bart.homer.*;
 public class BartContextListener implements ServletContextListener {
 	
 	public void contextInitialized(ServletContextEvent event) {
-		System.out.println("BART: context initialized");
 		ServletContext servletContext = event.getServletContext();
-		
-		// turn logging off
-		Logger.getLogger("").setLevel(Level.SEVERE);
 		
  		LazyHomer lh = new LazyHomer();
 		lh.init(servletContext.getRealPath("/"));		

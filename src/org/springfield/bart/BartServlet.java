@@ -57,8 +57,6 @@ public class BartServlet extends HttpServlet {
 	 */
 	public BartServlet() {
 		super();
-		System.out.println("BART: servlet object created");
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
